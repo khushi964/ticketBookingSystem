@@ -1,0 +1,477 @@
+          <!DOCTYPE html>
+          <html lang="en">
+            <head>
+              <meta charset="UTF-8" />
+              <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+              <title>MoviTune</title>
+              <script src="https://cdn.tailwindcss.com"></script>
+          
+              <!-- SwiperJS CDN -->
+              <link
+                rel="stylesheet"
+                href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
+              />
+              <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+            </head>
+            <body class="bg-gray-100 text-gray-900">
+              <!-- Header -->
+              <header class="flex items-center justify-between p-4 bg-white shadow-md">
+                <div class="flex items-center gap-4">
+                  <span class="text-xl font-bold text-red-600">MoviTune</span>
+                  <div class="flex items-center text-sm text-gray-600">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      class="h-4 w-4 mr-1"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M12 11c0 1.657-1.343 3-3 3s-3-1.343-3-3a3 3 0 016 0z"
+                      />
+                    </svg><label for="city-select" class="text-sm font-medium">Location:</label>
+                    <select id="city-select" class="border border-gray-300 rounded px-2 py-1 text-sm" onchange="updateLocation()">
+                      <option value="Lucknow">Lucknow</option>
+                      <option value="Delhi">Delhi</option>
+                      <option value="Mumbai">Mumbai</option>
+                      <option value="Bangalore">Bangalore</option>
+                      <option value="Kolkata">Kolkata</option>
+                    </select>
+                      </div>
+                </div>
+                <div class="flex-1 mx-8">
+                  <div class="relative">
+                    <input
+                      type="text"
+                      placeholder="Search for Movies, Events, Plays..."
+                      class="w-full px-10 py-2 border rounded-md"
+                    />
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      class="h-4 w-4 absolute left-3 top-3 text-gray-500"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M21 21l-4.35-4.35m0 0A7.5 7.5 0 1010.5 3a7.5 7.5 0 006.15 13.65z"
+                      />
+                    </svg>
+                  </div>
+                </div>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="h-6 w-6 text-gray-600"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M5.121 17.804A7.5 7.5 0 0012 21a7.5 7.5 0 006.879-3.196M15 10a3 3 0 11-6 0 3 3 0 016 0z"
+                  />
+                </svg>
+              </header>
+          
+              <!-- Hero Section as Swiper Slider -->
+              <section class="h-64 w-full">
+                <div class="swiper h-full">
+                  <div class="swiper-wrapper">
+                    <!-- Slide 1 -->
+                    <div
+                      class="swiper-slide relative bg-cover bg-center"
+                      style="background-image: url('WhatsApp Image 2025-04-28 at 15.28.31_c81ed0d6.jpg')"
+                    >
+                      <div
+                        class="h-full w-full bg-black/40 flex items-center justify-center"
+                      >
+                        <h2 class="text-3xl md:text-4xl font-bold text-white">
+                          Discover and Book Amazing Events
+                        </h2>
+                      </div>
+                    </div>
+                    <!-- Slide 2 -->
+                    <div
+                      class="swiper-slide relative bg-cover bg-center"
+                      style="background-image: url('WhatsApp Image 2025-04-28 at 14.32.19_e2cd8748.jpg')"
+                    >
+                      <div
+                        class="h-full w-full bg-black/40 flex items-center justify-center"
+                      >
+                        <h2 class="text-3xl md:text-4xl font-bold text-white">
+                          Find Concerts, Sports & More
+                        </h2>
+                      </div>
+                    </div>
+                    <!-- Slide 3 -->
+                    <div
+                      class="swiper-slide relative bg-cover bg-center"
+                      style="background-image: url('image copy.png')"
+                    >
+                      <div
+                        class="h-full w-full bg-black/40 flex items-center justify-center"
+                      >
+                        <h2 class="text-3xl md:text-4xl font-bold text-white">
+                          Book Anytime, Anywhere
+                        </h2>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </section>
+          
+              <!-- Categories -->
+              <section class="px-6 py-4">
+                <div class="flex gap-4 overflow-x-auto">
+                  <button class="border px-4 py-2 rounded-md whitespace-nowrap">
+                    Movies
+                  </button>
+                  <button class="border px-4 py-2 rounded-md whitespace-nowrap">
+                    Sports
+                  </button>
+                  <button class="border px-4 py-2 rounded-md whitespace-nowrap">
+                    Events
+                  </button>
+                  <button class="border px-4 py-2 rounded-md whitespace-nowrap">
+                    Concerts
+                  </button>
+                  <button class="border px-4 py-2 rounded-md whitespace-nowrap">
+                    Activities
+                  </button>
+                </div>
+              </section>
+
+              <!-- Trending Events -->
+    <section class="px-6 py-4">
+        <h3 class="text-xl font-semibold mb-4">Trending Now</h3>
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+          <div class="bg-white rounded-2xl shadow overflow-hidden">
+            <img
+              src="image.png"
+              alt="Avengers"
+              class="w-full h-60 object-cover"
+            />
+            <div class="p-2">
+              <p class="font-medium text-sm">Avengers: Endgame</p>
+              <p class="text-xs text-gray-500">Action</p>
+            </div>
+          </div>
+          <div class="bg-white rounded-2xl shadow overflow-hidden">
+            <img
+              src="WhatsApp Image 2025-04-28 at 14.42.25_7b270654.jpg"
+              alt="IPL"
+              class="w-full h-60 object-cover"
+            />
+            <div class="p-2">
+              <p class="font-medium text-sm">IPL 2025</p>
+              <p class="text-xs text-gray-500">Cricket</p>
+            </div>
+          </div>
+          <div class="bg-white rounded-2xl shadow overflow-hidden">
+            <img
+              src="WhatsApp Image 2025-04-28 at 11.08.23_1627a311.jpg"
+              alt="Arijit"
+              class="w-full h-60 object-cover"
+            />
+            <div class="p-2">
+              <p class="font-medium text-sm"> Taylor Swift
+              </p>
+              <p class="text-xs text-gray-500">Concert</p>
+            </div>
+          </div>
+          <div class="bg-white rounded-2xl shadow overflow-hidden">
+            <img
+              src="image copy 2.png"
+              alt="Comedy Show"
+              class="w-full h-60 object-cover"
+            />
+            <div class="p-2">
+              <p class="font-medium text-sm">Stand-up Night</p>
+              <p class="text-xs text-gray-500">Comedy</p>
+            </div>
+          </div>
+        </div>
+      </section>
+  
+       <!-- 1 -->
+      <section class="px-6 py-4">
+        <h3 class="text-xl font-semibold mb-4">Tollywood movies</h3>
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+          <div class="bg-white rounded-2xl shadow overflow-hidden">
+            <img
+              src="WhatsApp Image 2025-04-28 at 14.08.47_33b5547c.jpg"
+              alt="Baahubali"
+              class="w-full h-60 object-cover"
+            />
+            <div class="p-2">
+              <p class="font-medium text-sm">Baahubali</p>
+              <p class="text-xs text-gray-500">movie</p>
+            </div>
+          </div>
+          <div class="bg-white rounded-2xl shadow overflow-hidden">
+            <img
+              src="WhatsApp Image 2025-04-28 at 11.26.47_40acdd89.jpg"
+              alt="Hi Nanna"
+              class="w-full h-60 object-cover"
+            />
+            <div class="p-2">
+              <p class="font-medium text-sm">Hi Nanna</p>
+              <p class="text-xs text-gray-500">movie</p>
+            </div>
+          </div>
+          <div class="bg-white rounded-2xl shadow overflow-hidden">
+            <img
+              src="WhatsApp Image 2025-04-28 at 11.43.02_2d3f123e.jpg"
+              alt="RRR"
+              class="w-full h-60 object-cover"
+            />
+            <div class="p-2">
+              <p class="font-medium text-sm">RRR</p>
+              <p class="text-xs text-gray-500">movie</p>
+            </div>
+          </div>
+          <div class="bg-white rounded-2xl shadow overflow-hidden">
+            <img
+              src="WhatsApp Image 2025-04-28 at 14.53.41_1f662ba7.jpg"
+              alt="Movie"
+              class="w-full h-60 object-cover"
+            />
+            <div class="p-2">
+              <p class="font-medium text-sm">Guntur Kaaram</p>
+              <p class="text-xs text-gray-500">Movie</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+       <!-- 2 -->
+
+      <section class="px-6 py-4">
+        <h3 class="text-xl font-semibold mb-4">Bollywood Movies</h3>
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+          <div class="bg-white rounded-2xl shadow overflow-hidden">
+            <img
+              src="WhatsApp Image 2025-04-28 at 14.07.01_66a85ddf.jpg"
+              alt="Movie"
+              class="w-full h-60 object-cover"
+            />
+            <div class="p-2">
+              <p class="font-medium text-sm">Animal</p>
+              <p class="text-xs text-gray-500">Movie</p>
+            </div>
+          </div>
+          <div class="bg-white rounded-2xl shadow overflow-hidden">
+            <img
+              src="WhatsApp Image 2025-04-28 at 14.07.06_e155926d.jpg"
+              alt="Movie"
+              class="w-full h-60 object-cover"
+            />
+            <div class="p-2">
+              <p class="font-medium text-sm">12th fail</p>
+              <p class="text-xs text-gray-500">Movie</p>
+            </div>
+          </div>
+          <div class="bg-white rounded-2xl shadow overflow-hidden">
+            <img
+              src="WhatsApp Image 2025-04-28 at 14.07.12_c84606a6.jpg"
+              alt="Movie"
+              class="w-full h-60 object-cover"
+            />
+            <div class="p-2">
+              <p class="font-medium text-sm">Dhoom Dham</p>
+              <p class="text-xs text-gray-500">Movie</p>
+            </div>
+          </div>
+          <div class="bg-white rounded-2xl shadow overflow-hidden">
+            <img
+              src="WhatsApp Image 2025-04-28 at 14.07.17_529c8bac.jpg"
+              alt="Movie"
+              class="w-full h-60 object-cover"
+            />
+            <div class="p-2">
+              <p class="font-medium text-sm">Nadhaaniya</p>
+              <p class="text-xs text-gray-500">Movie</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+       <!-- 3 -->
+
+      <section class="px-6 py-4">
+        <h3 class="text-xl font-semibold mb-4">Hollywood</h3>
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+          <div class="bg-white rounded-2xl shadow overflow-hidden">
+            <img
+              src="WhatsApp Image 2025-04-28 at 14.13.11_f0c0cae7.jpg"
+              alt="movie"
+              class="w-full h-60 object-cover"
+            />
+            <div class="p-2">
+              <p class="font-medium text-sm">Venom</p>
+              <p class="text-xs text-gray-500">Movie</p>
+            </div>
+          </div>
+          <div class="bg-white rounded-2xl shadow overflow-hidden">
+            <img
+              src="WhatsApp Image 2025-04-28 at 14.12.57_7eb3c31e.jpg"
+              alt="Movie"
+              class="w-full h-60 object-cover"
+            />
+            <div class="p-2">
+              <p class="font-medium text-sm">DUNE</p>
+              <p class="text-xs text-gray-500">Movie</p>
+            </div>
+          </div>
+          <div class="bg-white rounded-2xl shadow overflow-hidden">
+            <img
+              src="WhatsApp Image 2025-04-28 at 14.11.33_3494ff81.jpg"
+              alt="Movie"
+              class="w-full h-60 object-cover"
+            />
+            <div class="p-2">
+              <p class="font-medium text-sm">MICKEY</p>
+              <p class="text-xs text-gray-500">Movie</p>
+            </div>
+          </div>
+          <div class="bg-white rounded-2xl shadow overflow-hidden">
+            <img
+              src="WhatsApp Image 2025-04-28 at 14.11.04_229a9348.jpg"
+              alt="Movie"
+              class="w-full h-60 object-cover"
+            />
+            <div class="p-2">
+              <p class="font-medium text-sm">Plankton</p>
+              <p class="text-xs text-gray-500">Movie</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+<!-- 4 -->
+ 
+      <section class="px-6 py-4">
+        <h3 class="text-xl font-semibold mb-4">Trending Now</h3>
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+          <div class="bg-white rounded-2xl shadow overflow-hidden">
+            <img
+              src="WhatsApp Image 2025-04-28 at 15.03.31_8535296d.jpg"
+              alt="Drama"
+              class="w-full h-60 object-cover"
+            />
+            <div class="p-2">
+              <p class="font-medium text-sm">Gangnam Beauty</p>
+              <p class="text-xs text-gray-500">Drama</p>
+            </div>
+          </div>
+          <div class="bg-white rounded-2xl shadow overflow-hidden">
+            <img
+              src="WhatsApp Image 2025-04-28 at 15.08.28_7f5c535f.jpg"
+              alt="IPL"
+              class="w-full h-60 object-cover"
+            />
+            <div class="p-2">
+              <p class="font-medium text-sm">Doctor slump</p>
+              <p class="text-xs text-gray-500">Drama</p>
+            </div>
+          </div>
+          <div class="bg-white rounded-2xl shadow overflow-hidden">
+            <img
+              src="WhatsApp Image 2025-04-28 at 15.10.22_255b1f8c.jpg"
+              alt="Arijit"
+              class="w-full h-60 object-cover"
+            />
+            <div class="p-2">
+              <p class="font-medium text-sm">My demon</p>
+              <p class="text-xs text-gray-500">Drama</p>
+            </div>
+          </div>
+          <div class="bg-white rounded-2xl shadow overflow-hidden">
+            <img
+              src="WhatsApp Image 2025-04-28 at 15.13.28_1877031f.jpg"
+              alt="Comedy Show"
+              class="w-full h-60 object-cover"
+            />
+            <div class="p-2">
+              <p class="font-medium text-sm">Happiness</p>
+              <p class="text-xs text-gray-500">Drama</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+<!-- 4 -->
+
+      <section class="px-6 py-4">
+        <h3 class="text-xl font-semibold mb-4">Anime</h3>
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+          <div class="bg-white rounded-2xl shadow overflow-hidden">
+            <img
+              src="WhatsApp Image 2025-04-28 at 15.18.14_55186e9a.jpg"
+              alt="Anime"
+              class="w-full h-60 object-cover"
+            />
+            <div class="p-2">
+              <p class="font-medium text-sm">Wind Breaker</p>
+              <p class="text-xs text-gray-500">Anime</p>
+            </div>
+          </div>
+          <div class="bg-white rounded-2xl shadow overflow-hidden">
+            <img
+              src="WhatsApp Image 2025-04-28 at 15.21.21_87e938a4.jpg"
+              alt="Anime"
+              class="w-full h-60 object-cover"
+            />
+            <div class="p-2">
+              <p class="font-medium text-sm">Chainsaw Man</p>
+              <p class="text-xs text-gray-500">Anime</p>
+            </div>
+          </div>
+          <div class="bg-white rounded-2xl shadow overflow-hidden">
+            <img
+              src="WhatsApp Image 2025-04-28 at 15.28.08_c398320b.jpg"
+              alt="Anime"
+              class="w-full h-60 object-cover"
+            />
+            <div class="p-2">
+              <p class="font-medium text-sm">Classroom of the elite</p>
+              <p class="text-xs text-gray-500">Anime</p>
+            </div>
+          </div>
+          <div class="bg-white rounded-2xl shadow overflow-hidden">
+            <img
+              src="WhatsApp Image 2025-04-28 at 15.47.43_54249185.jpg"
+              alt="Anime"
+              class="w-full h-60 object-cover"
+            />
+            <div class="p-2">
+              <p class="font-medium text-sm">Spy X Family</p>
+              <p class="text-xs text-gray-500">Anime</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+              <!-- Swiper Init -->
+              <script>
+                const swiper = new Swiper(".swiper", {
+                  loop: true,
+                  autoplay: {
+                    delay: 3000,
+                  },
+                  effect: "slide",
+                });
+              </script>
+            </body>
+          </html>
+          
+
+
