@@ -1,4 +1,4 @@
-🎟 Ticket Booking Management System
+🎟 Ticket Booking Management System(MoviTune)
 
 
 A simple console-based Java application that allows users to book tickets for movies. Built using pure Java following the MVC design pattern, this project supports both Admin and Customer roles with full CRUD 
