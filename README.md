@@ -110,6 +110,140 @@ ticketBookingSystem/
 
 
 
+🎬 Movie Ticket Booking System (UI Sample)
+
+
+
+
+
+It is a  sample front-end UI for a movie ticket booking system named MoviTune, developed using HTML, CSS, and basic JavaScript principles, following OOP concepts where applicable.
+
+
+
+
+
+🔧 This is a front-end-only implementation — meant as a design and layout prototype.
+
+
+
+
+
+🗂️ Project Structure
+
+
+
+
+
+frontend/
+├── index.html                # Landing/Home Page
+
+
+
+├── movies.html              # Movies listing
+
+
+├── ticket-booking.html      # Seat selection & booking
+
+
+├── e-ticket.html            # Electronic ticket view
+
+
+├── sign_in.html             # Sign-in page
+
+
+├── Contact_Us.html          # Contact form
+
+
+├── about.html               # About the project
+
+
+├── assets/
+│   └── css/                 # Stylesheets (UI, seat charts, progress bars, etc.)
+
+
+├── screenshots/             # Light and dark theme previews
+
+
+├── LICENSE.md               # License information
+
+
+
+
+
+⸻
+
+💡 Features
+
+
+
+•	🎥 Browse available movies
+
+
+
+•	🎟️ Seat selection interface
+
+
+•	📄 E-ticket sample page
+
+
+
+•	🌙 Light and Dark UI themes
+
+
+•	🔐 Sign-in page mockup
+
+
+•	📞 Contact Us page
+
+
+
+
+🛠️ Tech Stack
+
+
+
+•	HTML5
+
+
+•	CSS3
+
+
+•	JavaScript (basic DOM/OOP usage)
+
+
+•	UI Elements styled using custom CSS and templates
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+🚀 Getting Started
+
+
+
+
+To preview the UI locally:
+
+
+
+1.	Download or clone the repo.
+
+ 
+2.	Open index.html in your browser.
+
+    
+3.	Navigate between the pages via links or manually.
+
+
 
 
 
